@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/** 👆 Lets reset all margin and paddings */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/** 👆 Give a nice font */
+
+img {
+  width: 100%;
+}
+/** 👆 Lets make all images to be responsive */
+
+.container {
+  display: grid;
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/** 👆 Your initial style of container */
