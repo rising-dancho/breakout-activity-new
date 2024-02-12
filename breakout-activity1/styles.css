@@ -14,6 +14,11 @@ img {
 }
 /** 👆 Lets make all images to be responsive */
 
+/* this is my change: jose */
+.banner {
+  background-color: red;
+}
+
 .container {
   display: grid;
   width: 100%;
