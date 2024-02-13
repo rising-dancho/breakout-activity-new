@@ -8,6 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-weight: 600;
 }
 /** 👆 Give a nice font */
 
@@ -51,7 +52,6 @@ aside {
   grid-area: popular;
   display: flex;
   gap: 20px;
-  font-weight: 600;
 }
 
 .popular h1 {
