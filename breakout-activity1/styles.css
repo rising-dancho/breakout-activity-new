@@ -54,6 +54,7 @@ aside{
 
 .trendings{
   grid-area: trend;
+  display: flex;
 }
 
 /* Temporary Image Resize */
@@ -66,11 +67,12 @@ header img{
   width: 154px;
   height: 115px;
   display: flex;
-  position: relative;
   justify-content: space-between;
 }
-
-.trendings div{
+article {
   display: flex;
-  position:relative;
+  gap: 10px;
+
 }
+
+
