@@ -36,8 +36,33 @@ img {
 }
 /** 👆 Your initial style of container */
 
+
 header{
   grid-area: header;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+header img{
+  max-width: 12%;
+  height: auto;
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  
+  width: 88%;
+  justify-content: end;
+}
+
+ul{
+  list-style-type: none;
+  display: flex;
+}
+
+li{
+  margin: 8px;
 }
 
 .banner{
@@ -46,24 +71,73 @@ header{
 
 aside{
   grid-area: side;
+  background-color: #4A2D6E;
+  color: #fff;
+  padding: 15px;
 }
 
-.popular{
+aside > h2:first-child{
+  color: #A7982B;
+  font-size: 32px;
+}
+
+aside article{
+  margin-top: 10px;
+}
+
+.popular {
   grid-area: popular;
+  display: flex;
+  gap: 20px;
+}
+
+.popular h1 {
+  line-height: 100%;
+}
+
+.popular div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 15px;
+}
+
+.popular .read-more:link,
+.popular .read-more:visited {
+  padding: 10px;
+  background-color: #9051a8;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.15s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popular .read-more:hover,
+.popular .read-more:active {
+  text-decoration: none;
+  background-color: #734186;
 }
 
 .trendings{
+  width: 100%;
   grid-area: trend;
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Temporary Image Resize */
-header img{
-  width: 154px;
-  height: 66px;
+.trendings article{
+  max-width: 31%;
+  grid-area: trend;
+  display: flex;
+}
+
+.trendings div{
+  max-width: 60%;
 }
 
 .trendings img{
-  width: 120px;
-  height: 115px;
+  padding-right: 10px;
+  max-width: 40%;
+  max-height: auto;
+  margin-bottom: auto;
 }
-
