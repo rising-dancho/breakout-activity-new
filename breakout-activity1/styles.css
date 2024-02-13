@@ -6,6 +6,8 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 /** 👆 Give a nice font */
 
