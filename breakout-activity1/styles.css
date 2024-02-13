@@ -27,43 +27,58 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-        "header header header"
-        "banner banner side"
-        "popular popular side"
-        "trend trend trend";
+    'header header header'
+    'banner banner side'
+    'popular popular side'
+    'trend trend trend';
   gap: 20px;
-  
 }
 /** 👆 Your initial style of container */
 
-header{
+header {
   grid-area: header;
 }
 
-.banner{
+.banner {
   grid-area: banner;
 }
 
-aside{
+aside {
   grid-area: side;
 }
 
-.popular{
+.popular {
   grid-area: popular;
+  display: flex;
+  gap: 20px;
 }
 
-.trendings{
+.popular div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+}
+
+.popular .read-more {
+  padding: 10px;
+  background-color: #9051A8;
+  color: white;
+  text-transform: uppercase;
+}
+
+.trendings {
   grid-area: trend;
 }
 
 /* Temporary Image Resize */
-header img{
+header img {
   width: 154px;
   height: 66px;
 }
 
-.trendings img{
+.trendings img {
   width: 120px;
   height: 115px;
 }
-
