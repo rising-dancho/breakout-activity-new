@@ -51,6 +51,7 @@ aside {
   grid-area: popular;
   display: flex;
   gap: 20px;
+  font-weight: 600;
 }
 
 .popular h1 {
@@ -65,11 +66,20 @@ aside {
   gap: 15px;
 }
 
-.popular .read-more {
+/* lvha */
+.popular .read-more:link,
+.popular .read-more:visited {
   padding: 10px;
   background-color: #9051a8;
   color: white;
   text-transform: uppercase;
+  transition: all 0.15s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popular .read-more:hover,
+.popular .read-more:active {
+  text-decoration: none;
+  background-color: #734186;
 }
 
 .trendings {
