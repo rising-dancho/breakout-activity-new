@@ -53,17 +53,21 @@ aside {
   gap: 20px;
 }
 
+.popular h1 {
+  line-height: 100%;
+}
+
 .popular div {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  gap: 20px;
+  gap: 18px;
 }
 
 .popular .read-more {
   padding: 10px;
-  background-color: #9051A8;
+  background-color: #9051a8;
   color: white;
   text-transform: uppercase;
 }
