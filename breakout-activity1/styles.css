@@ -14,16 +14,54 @@ img {
 }
 /** 👆 Lets make all images to be responsive */
 
-/* this is my change: jose */
-.banner {
-  background-color: red;
-}
-
 .container {
   display: grid;
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+
+  /* Html Layout Grid */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+        "header header header"
+        "banner banner side"
+        "popular popular side"
+        "trend trend trend";
+  gap: 20px;
+  
 }
 /** 👆 Your initial style of container */
+
+header{
+  grid-area: header;
+}
+
+.banner{
+  grid-area: banner;
+}
+
+aside{
+  grid-area: side;
+}
+
+.popular{
+  grid-area: popular;
+}
+
+.trendings{
+  grid-area: trend;
+}
+
+/* Temporary Image Resize */
+header img{
+  width: 154px;
+  height: 66px;
+}
+
+.trendings img{
+  width: 120px;
+  height: 115px;
+}
+
