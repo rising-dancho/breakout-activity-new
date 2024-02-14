@@ -9,7 +9,6 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-/** 👆 Give a nice font */
 
 img {
   width: 100%;
@@ -17,7 +16,6 @@ img {
 /** 👆 Lets make all images to be responsive */
 
 .container {
-  display: grid;
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
@@ -25,44 +23,92 @@ img {
 
   /* Html Layout Grid */
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-areas:
-        "header header header"
-        "banner banner side"
-        "popular popular side"
-        "trend trend trend";
-  gap: 20px;
-  
+  /* 
+    grid-template-columns
+      - sets the number and size of columns
+    grid-template-areas
+      - sets the initial structure or layout of the page
+      - fr / fraction is another unit that you can use but you can still use px for exact size and % for just a part size
+          - fr compared to % 
+              --> Example: we have 3 columns and we want to divide it equally
+                  --> in percent we can declare the size as 33% but 33% * 3 (columns) = 99% only, there's an extra space
+                  --> in fraction - it deals with available space so...
+                      -->we can just have 3 fractions declaration: 1fr, 1fr, 1fr; and our 3 columns will be equally and accurately sized 
+    grid-area
+      - rename items to be used in grid-template-area 
+          - look at the selectors header, .banner, aside, popular and .trendings -- notice grid:area
+    gap
+      - declared space in between
+  */ 
+  grid-template-columns: repeat(3, 1fr); /* creates 3 columns with 1fr(fraction) size -- similar output with grid-template-columns: 1fr, 1fr, 1fr;*/
+  grid-template-areas: /* NOTE: three (3) columns are declared on grid-template-columns so...*/
+        "header header header"  /* PAGE HEADER occupy the whole row -- 1 header per column (total of 3)*/
+        "banner banner side"    /* BANNER will occupy 2 columns and SideBar has 1 (total of 3)*/
+        "popular popular side"  /* Popular Section will occupy 2 columns and SideBar has 1 (total of 3)*/
+        "trend trend trend";    /* Trend Section occupies the whole row (total of 3)*/
+  gap: 20px; /* the page will have 20px gap/space/gouter in between the grid areas - EXPERIENCE: try to change the values */
 }
-/** 👆 Your initial style of container */
 
+/* 
+  display: flex;
+    - converts the item as flex item
+  flex-flow:
+    - is shorthand syntax for flex-direction: row/column and flex-wrap: nowrap/wrap( wrap prevents the items from overflowing to the parent-container)
+    - Format:  flex-flow: <row/column> <nowrap/wrap>;
+    - Default value is row nowrap
+*/
 
 header{
   grid-area: header;
-  display: flex;
-  flex-flow: row nowrap;
+  display: flex; 
+  flex-flow: row nowrap; /* you can omit this line because it has the default value declared*/
 }
 
-header img{
-  max-width: 12%;
-  height: auto;
+header img{ /* this selector targets all img in the header - I use this because there is no other img in the header that will conflict*/
+  max-width: 12%; /* the img will occupy 12% of the width of the container*/
+  height: auto; /* img height size will automatically occupy the space available inside the container*/
 }
 
+ /* 
+  align-items:
+    - content alignment vertically 
+  justify-content:  
+    content alignment horizontally
+
+  NOTE:
+    - if there is no declared height on an element, the default height is computed according to the totality of its contents, padding and border
+*/
 nav{
   display: flex;
-  align-items: center;
-  
+  align-items: center; /* the contents of nav will center vertically depending on the default height or declared height of nav  */
   width: 88%;
-  justify-content: end;
+  justify-content: end; /* the content will move horizontally at the right side of the nav */
 }
 
 ul{
-  list-style-type: none;
-  display: flex;
+  list-style-type: none; /* removes the bullet point at the beginning of the list items. TRY checking different values of list-style-type like disc, upper-roman, lower aplha ... */
+  display: flex; /* using display: flex; on the <ul> will make its list items align horizontally. TRY removing it.*/
 }
 
+/* 
+  margin:
+    - creates margin around the element
+    - syntax 1 value -> margin: <value>; - this syntax creates margin around the element 
+        - USE this if all side has similar margin value
+    - syntax 2 values -> margin: <top&bottom-value>, <sides-value>;
+        - Use this if top and bottom has similar value and sides have similar value but the two values are different
+        - Example: margin: 10px, 15px; -> top and bottom has 10px margin and left and right margin has similar value of 15px
+    - syntax 3 values -> margin: <top-value>, <sides-value>, <bottom value>;
+        - Use this if top and bottom margin has different values and the sides (right and left) margin are similar
+    - syntax 4 values -> margin: <top-value>, <right-value>, <bottom-value>, <left-value>; 
+        - USE this if all side has different values
+        - Example: margin: 10px 5px 8px 12px; -> the element will have margin of 10 px on the top, 5px margin on the right, 8px margin at the bottom and 12px margin on the left side
+
+  NOTE: the Syntax 1, 2, 3 and 4 will also work on padding
+*/
+
 li{
-  margin: 8px;
+  margin: 8px; /* creates 8px margin spaces on top, right, bottom and left side of the element */
 }
 
 .banner{
@@ -76,7 +122,8 @@ aside{
   padding: 15px;
 }
 
-aside > h2:first-child{
+aside > h2{ /* Selects the all h2 child of aside but not the h2 inside the div even if they are inside aside*/
+  /* if you want to select all h2 in the aside, use descendant selector space( ) not less than symbol(>) */
   color: #A7982B;
   font-size: 32px;
 }
@@ -92,7 +139,7 @@ aside article{
 }
 
 .popular h1 {
-  line-height: 100%;
+  line-height: 100%; /* sets where the text line started. TRY removing or changing its value */
 }
 
 .popular div {
@@ -103,18 +150,19 @@ aside article{
   gap: 15px;
 }
 
-.popular .read-more:link,
-.popular .read-more:visited {
+.popular .read-more:link, /* selects the link inside .read-more class */
+.popular .read-more:visited { /* if the link is visited */
+  /* this code will apply */
   padding: 10px;
   background-color: #9051a8;
   color: white;
-  text-transform: uppercase;
-  transition: all 0.15s cubic-bezier(0.215, 0.610, 0.355, 1);
+  text-transform: uppercase; /* it will transform the text in to uppercase even if you type it in the html in lowercase. Try using lowercase or capitalize */
+  transition: all 0.15s cubic-bezier(0.215, 0.610, 0.355, 1); /* creates effect / smooth transition */
 }
-
-.popular .read-more:hover,
-.popular .read-more:active {
-  text-decoration: none;
+/*  */
+.popular .read-more:hover, /* if you hover(move your mouse cursor on the link)*/
+.popular .read-more:active { /* if link inside .read-more class is active( is clickable)*/
+  text-decoration: none; /* removes underline, line-through and others on the text if set to NONE */
   background-color: #734186;
 }
 
@@ -125,11 +173,31 @@ aside article{
   justify-content: space-between;
 }
 
+/* 
+There are 3 articles on the .trending class
+- giving them exact width sizes according to the width size of the container(.trendings class)
+- 31% only, 6% extra for spacing that will be used by justify-content: space-between; on .trending class
+
+NOTE: percent(%) 
+        -value is used if you want to occupy a division/percentage size of the parent container and;
+        - also used to make the container repsonsive
+*/
+
 .trendings article{
   max-width: 31%;
   grid-area: trend;
   display: flex;
 }
+
+
+/* the divs and img on class trending making it responsive when resizing the page. Try resizing the page by resizing the browser or using inspect element (right click, select inspect) then resizing the inspect element tab to the right
+  - div will have a width and will not exceed to the 60% of the container he is in
+  - on the otherhand, img will have 40%
+
+  img
+  - has max-height: auto; - it will resize the height of the image automatically according to the available space. TRY removing the margin-bottom: auto
+  - margin-bottom: auto; - prevents the height of image from exceeding / fixing the auto resize of image height
+  */
 
 .trendings div{
   max-width: 60%;
