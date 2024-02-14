@@ -8,6 +8,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-weight: 600;
 }
 /** 👆 Give a nice font */
 
@@ -27,43 +28,71 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-        "header header header"
-        "banner banner side"
-        "popular popular side"
-        "trend trend trend";
+    'header header header'
+    'banner banner side'
+    'popular popular side'
+    'trend trend trend';
   gap: 20px;
-  
 }
 /** 👆 Your initial style of container */
 
-header{
+header {
   grid-area: header;
 }
 
-.banner{
+.banner {
   grid-area: banner;
 }
 
-aside{
+aside {
   grid-area: side;
 }
 
-.popular{
+.popular {
   grid-area: popular;
+  display: flex;
+  gap: 20px;
 }
 
-.trendings{
+.popular h1 {
+  line-height: 100%;
+}
+
+.popular div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 15px;
+}
+
+/* lvha */
+.popular .read-more:link,
+.popular .read-more:visited {
+  padding: 10px;
+  background-color: #9051a8;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.15s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.popular .read-more:hover,
+.popular .read-more:active {
+  text-decoration: none;
+  background-color: #734186;
+}
+
+.trendings {
   grid-area: trend;
 }
 
 /* Temporary Image Resize */
-header img{
+header img {
   width: 154px;
   height: 66px;
 }
 
-.trendings img{
+.trendings img {
   width: 120px;
   height: 115px;
 }
-
